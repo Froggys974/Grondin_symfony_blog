@@ -1,0 +1,37 @@
+{# templates/sidebar.html.twig #}
+<div id="sidebar">
+    <h2>Categories</h2>
+    <a href="{{ path('category_new') }}" class="btn btn-primary">Create New Category</a>
+
+    {% if categories is not empty %}
+        <ul>
+            {% for category in categories %}
+                <li>
+                    <a href="{{ path('category_show', {'id': category.id}) }}">{{ category.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No categories found.</p>
+    {% endif %}
+
+    <h2>Articles</h2>
+    <a href="{{ path('article_new') }}" class="btn btn-primary">Create New Article</a>
+
+    {% if articles is not empty %}
+        <ul>
+            {% for article in articles %}
+                <li>
+                    <a href="{{ path('article_show', {'id': article.id}) }}">{{ article.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No articles found.</p>
+    {% endif %}
+</div>
+
+{# Loading spinner #}
+<div id="loading" style="display:none;">
+    <p>Loading...</p>
+</div>
