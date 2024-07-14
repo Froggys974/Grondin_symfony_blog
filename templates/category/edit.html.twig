@@ -1,0 +1,13 @@
+{# templates/category/edit.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit {{ category.name }}{% endblock %}
+
+{% block body %}
+    <h1>Edit {{ category.name }}</h1>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn">Update</button>
+    {{ form_end(form) }}
+    <a href="{{ path('category_index') }}">Back to list</a>
+{% endblock %}

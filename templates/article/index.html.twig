@@ -1,0 +1,23 @@
+{# templates/article/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Article List{% endblock %}
+
+{% block body %}
+    <h1>Articles</h1>
+    <a class="btn btn-primary" href="{{ path('article_new') }}">Create New Article</a>
+    <div id="loading" style="display:none;">Loading...</div>
+    <div id="article-list">
+        {% if articles is not empty %}
+            <ul class="list-group">
+                {% for article in articles %}
+                    <li class="list-group-item">
+                        <a href="{{ path('article_show', {id: article.id}) }}">{{ article.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No articles available.</p>
+        {% endif %}
+    </div>
+{% endblock %}
